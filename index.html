@@ -1,0 +1,131 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>HEIMTEXTIL 2027 · Lucky Textile Mills</title><meta name="theme-color" content="#f6f1e7">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e7;--ink:#2a2420;--mute:#7a6e63;--gold:#b08d57;--acc:#b08d57;--card:#fffdf8;--line:#e4d9c6;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:300 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;text-align:center;padding:max(28px,env(safe-area-inset-top)) 20px 0;position:relative;overflow:hidden;
+background:radial-gradient(60% 50% at 50% 45%,#fffaf0 0,transparent 70%),radial-gradient(40% 40% at 10% 90%,#ead9c0 0,transparent 70%),radial-gradient(40% 40% at 92% 12%,#d9e0ef 0,transparent 70%),var(--bg)}
+.logo{width:min(200px,46vw);opacity:0;animation:rise 1.2s .2s forwards}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:24px 0}
+.eyebrow{letter-spacing:.5em;text-transform:uppercase;font-size:.72rem;color:var(--gold);opacity:0;animation:rise 1s .8s forwards}
+h1{font:400 clamp(2.4rem,9.5vw,7rem)/1 var(--serif);letter-spacing:.14em;margin:.25em 0 0;padding-left:.14em;opacity:0;animation:track 2s .6s forwards}
+h1 b{display:block;font-weight:300;font-style:italic;letter-spacing:.5em;color:var(--gold);font-size:.62em;margin-top:.1em;padding-left:.5em}
+.rule{width:min(260px,50vw);height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.6rem 0;opacity:0;animation:rise 1s 1.4s forwards}
+.chip{font-size:.95rem;letter-spacing:.08em;opacity:0;animation:rise 1s 1.6s forwards}.chip i{font:italic 1.4rem var(--serif);display:block;margin-bottom:.3rem}
+.btn{display:inline-block;margin-top:1.8rem;padding:.9rem 2.4rem;border:1px solid var(--ink);border-radius:99px;color:var(--ink);text-decoration:none;letter-spacing:.25em;text-transform:uppercase;font-size:.72rem;background:none;cursor:pointer;font-family:var(--sans);transition:.3s;opacity:0;animation:rise 1s 1.9s forwards}
+.btn:hover,.btn.on{background:var(--ink);color:var(--bg)}
+.strip{width:100%;overflow:hidden;padding:18px 0 26px;mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.strip div{display:flex;gap:14px;width:max-content;animation:slide 60s linear infinite}.strip img{height:clamp(90px,16vh,150px);border-radius:10px;box-shadow:0 8px 24px #3a2a1a30}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes track{from{opacity:0;letter-spacing:.5em;filter:blur(8px)}to{opacity:1;letter-spacing:.14em;filter:none}}
+@keyframes slide{to{transform:translateX(-50%)}}
+.sec{max-width:1200px;margin:0 auto;padding:80px 20px}.sec h2{font:400 clamp(1.8rem,5vw,3rem) var(--serif);text-align:center}.sec p.s{text-align:center;color:var(--mute);margin:.4rem 0 2.4rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{background:var(--card);border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;border:1px solid var(--line);transition:.4s;display:block}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px #4a361e22}.card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:.8s}.card:hover img{transform:scale(1.05)}
+.card div{padding:16px 20px 20px;border-top:3px solid var(--c);overflow:hidden}.card small{letter-spacing:.3em;text-transform:uppercase;color:var(--mute);font-size:.65rem}.card h3{font:400 1.7rem var(--serif)}
+footer{text-align:center;padding:40px 20px 60px;color:var(--mute);font-size:.85rem;border-top:1px solid var(--line)}
+/* bed view */
+#view{position:fixed;inset:0;background:var(--bg);z-index:10;display:none;flex-direction:column;overflow:auto}#view.on{display:flex}
+.top{display:flex;align-items:center;gap:14px;padding:max(12px,env(safe-area-inset-top)) 16px 12px;position:sticky;top:0;background:#f6f1e7ee;backdrop-filter:blur(8px);z-index:3;border-bottom:1px solid var(--line)}
+.top button{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:.45rem 1rem;cursor:pointer;font:400 .8rem var(--sans)}.top img{height:30px;margin-left:auto}
+.top h2{font:400 1.6rem var(--serif);color:var(--acc)}
+.wrap{display:grid;grid-template-columns:1.5fr 1fr;flex:1;min-height:0}
+.stage{position:relative;min-height:58vh;background:radial-gradient(70% 60% at 50% 55%,#fffaf0,var(--bg));touch-action:none;cursor:grab}
+canvas{width:100%;height:100%;display:block;position:absolute}
+.ctl{position:absolute;left:0;right:0;bottom:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0 10px}
+.ctl .btn{margin:0;opacity:1;animation:none;padding:.65rem 1.4rem;background:#fffdf8d0;backdrop-filter:blur(6px)}.ctl .btn:hover,.ctl .btn.on{background:var(--ink)}
+.hint{position:absolute;top:10px;width:100%;text-align:center;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mute);pointer-events:none}
+.info{padding:24px;overflow:auto;background:var(--card);border-left:1px solid var(--line)}
+.info>img{width:100%;border-radius:12px;margin-bottom:16px}.info h3{font:400 1.3rem var(--serif);margin:18px 0 6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips button{border:1px solid var(--line);background:var(--bg);border-radius:99px;padding:.4rem .9rem;font:400 .78rem var(--sans);cursor:pointer}.chips button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.det{background:var(--bg);border-radius:12px;padding:14px;margin-top:12px;border-left:4px solid var(--acc)}.det img{width:100%;height:90px;object-fit:cover;border-radius:8px;margin-bottom:10px}.det b{font-weight:500}
+.sp{border-top:1px solid var(--line);margin-top:10px;padding-top:8px;font-size:.78rem;line-height:1.45}.sp i{color:var(--mute)}
+.fin{border:1px solid var(--acc);border-radius:12px;padding:14px;background:linear-gradient(135deg,#fff,var(--bg))}
+@media(max-width:820px){.wrap{display:block}.stage{height:62vh}.info{border:0}}
+</style></head><body>
+<header class="hero" id="home">
+<img class="logo" src="assets/logo.png" alt="Lucky Textile Mills Limited">
+<div class="mid"><div class="eyebrow">Premium Bedding Collection</div>
+<h1>HEIMTEXTIL<b>2027</b></h1><div class="rule"></div>
+<div class="chip"><i id="tag"></i><span id="ev"></span></div>
+<a class="btn" href="#collection">Explore the Collection</a></div>
+<div class="strip"><div id="strip"></div></div></header>
+<main class="sec" id="collection"><h2>Six Beds. Five Layers Each.</h2><p class="s">Tap a bed to rotate it in 3D and unstack every layer.</p><div class="grid" id="grid"></div></main>
+<footer>© Lucky Textile Mills Limited · Open source (MIT) · Heimtextil 2027</footer>
+<section id="view"><div class="top"><button id="back">← Collection</button><h2 id="vn"></h2><img src="assets/logo.png" alt="Lucky"></div>
+<div class="wrap"><div class="stage" id="stage"><canvas id="cv"></canvas><div class="hint">Drag to rotate · Pinch to zoom · Tap a layer</div>
+<div class="ctl"><button class="btn" id="bs">Unstack Layers ⇄</button><button class="btn on" id="ba">Auto-rotate</button></div></div>
+<aside class="info" id="info"></aside></div></section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);let D,bed,T,R,CAM,G,items=[],pill=[],u=0,uT=0,sel=-1,yaw=-.7,pitch=.42,dist=6,zoom=1,auto=true,ease=0,pt=new Map(),drag=0,raf;
+const ez=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+fetch('data/products.json').then(r=>r.json()).then(d=>{D=d;$('#tag').textContent=d.event.tagline;$('#ev').textContent=`${d.event.dates} · Hall ${d.event.hall} · Stand ${d.event.stand}`;
+const im=d.beds.map(b=>`<img src="assets/${b.id}/hero.jpg" alt="">`).join('');$('#strip').innerHTML=im+im;
+$('#grid').innerHTML=d.beds.map((b,i)=>`<a class="card" href="#${b.id}" style="--c:${b.accent}"><img src="assets/${b.id}/hero.jpg" alt="${b.name}" loading="lazy"><div><small>Bed 0${i+1}</small><h3>${b.name}</h3></div></a>`).join('');route()})
+.catch(()=>document.body.insertAdjacentHTML('afterbegin','<p style="padding:20px;background:#fee">Please open via GitHub Pages or a local server (python -m http.server).</p>'));
+addEventListener('hashchange',route);
+function route(){const id=location.hash.slice(1),b=D&&D.beds.find(x=>x.id===id);if(b)open(b);else{$('#view').classList.remove('on');cancelAnimationFrame(raf);document.body.style.overflow='';
+if(id==='collection')$('#collection').scrollIntoView()}}
+$('#back').onclick=()=>{location.hash=''};
+function layerOrder(L){return L.map((l,i)=>({...l,i}))}
+function open(b){bed=b;sel=-1;u=uT=0;zoom=1;auto=true;yaw=-.7;pitch=.42;$('#ba').classList.add('on');$('#bs').textContent='Unstack Layers ⇄';
+document.documentElement.style.setProperty('--acc',b.accent);$('#vn').textContent=b.name;$('#view').classList.add('on');document.body.style.overflow='hidden';
+info();if(!R)init();build();resize();cancelAnimationFrame(raf);loop()}
+function info(){const b=bed,f=b.finish;$('#info').innerHTML=`<img src="assets/${b.id}/hero.jpg" alt="${b.name}">
+${f?`<div class="fin"><b>${f.name}</b>${f.tech?`<br><i>${f.tech}</i>`:''}<br><small>Powered by: ${f.by}</small><p>${f.d}</p></div>`:''}
+<h3>The Story</h3><p>${b.story}</p><h3>Layers &amp; Technical Specification</h3><div class="chips">${b.layers.map((l,i)=>`<button data-i="${i}">${lab(i)}</button>`).join('')}</div><div id="det"></div>
+<p style="margin-top:22px;font-size:.8rem;color:var(--mute)">HEIMTEXTIL 2027 · Hall ${D.event.hall} · Stand ${D.event.stand}</p>`;
+$('#info').querySelectorAll('.chips button').forEach(x=>x.onclick=()=>pick(+x.dataset.i));det()}
+function det(){const l=bed.layers[sel];document.querySelectorAll('.chips button').forEach((x,i)=>x.classList.toggle('on',i===sel));
+$('#det').innerHTML=l?`<div class="det"><img src="assets/${bed.id}/l${sel+1}.jpg" alt=""><b>${lab(sel)}${l.k&&l.n!=='Throw'&&l.n!=='Fitted Sheet'?' – '+l.n:''}</b>${l.c?`<br><small>Code: ${l.c}</small>`:''}${l.s?`<br><small>Size: ${l.s}</small>`:''}${l.fi?`<br><small>Finish: ${l.fi}</small>`:''}${l.no?`<br><small>Note: ${l.no}</small>`:''}
+<p style="margin-top:8px">${l.f?(l.r?'Front: ':'')+l.f:''}${l.r?`<br>Reverse: ${l.r}`:''}${l.x?`<br>${l.x}`:''}</p>
+${(l.spec||[]).map(s=>`<div class="sp"><b>${s[0]}</b><br>${s[1]}<br><i>${s[2]}</i></div>`).join('')}</div>`:'<p style="margin-top:12px;color:var(--mute)">Tap a layer on the bed, or a button above, for fabric details.</p>'}
+function pick(i){sel=i===sel?-1:i;det()}
+function init(){R=new THREE.WebGLRenderer({canvas:$('#cv'),antialias:true,alpha:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.outputEncoding=THREE.sRGBEncoding;
+T=new THREE.Scene();CAM=new THREE.PerspectiveCamera(35,1,.1,200);G=new THREE.Group();T.add(G);
+T.add(new THREE.HemisphereLight(0xffffff,0xd9c7a8,.9));const d=new THREE.DirectionalLight(0xffffff,.8);d.position.set(4,8,5);T.add(d);
+addEventListener('resize',resize);const st=$('#stage');
+st.addEventListener('pointerdown',e=>{pt.set(e.pointerId,e);drag=0;ease=0;st.setPointerCapture(e.pointerId)});
+st.addEventListener('pointermove',e=>{const p=pt.get(e.pointerId);if(!p)return;
+if(pt.size===1){yaw+=(e.clientX-p.clientX)*.007;pitch=Math.max(.05,Math.min(1.35,pitch+(e.clientY-p.clientY)*.005));drag+=Math.abs(e.movementX||0)+Math.abs(e.movementY||0)}
+else if(pt.size===2){const o=[...pt.values()].find(q=>q.pointerId!==e.pointerId);const a=Math.hypot(p.clientX-o.clientX,p.clientY-o.clientY),b=Math.hypot(e.clientX-o.clientX,e.clientY-o.clientY);zoom=Math.max(.4,Math.min(2.2,zoom*a/b));drag=99}
+pt.set(e.pointerId,e)});
+const up=e=>{const p=pt.get(e.pointerId);pt.delete(e.pointerId);if(p&&drag<6&&!pt.size&&e.type==='pointerup')tap(e)};
+st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+st.addEventListener('wheel',e=>{e.preventDefault();zoom=Math.max(.4,Math.min(2.2,zoom*(1+e.deltaY*.001)))},{passive:false});
+$('#ba').onclick=e=>{auto=!auto;e.target.classList.toggle('on',auto)};
+$('#bs').onclick=e=>{uT=uT?0:1;e.target.textContent=uT?'Stack Layers ⇄':'Unstack Layers ⇄';auto=false;$('#ba').classList.remove('on');if(uT)ease=1}}
+function tap(e){const r=$('#cv').getBoundingClientRect(),m=new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),rc=new THREE.Raycaster();rc.setFromCamera(m,CAM);
+const h=rc.intersectObjects(items.map(o=>o.m))[0];if(h)pick(items.find(o=>o.m===h.object).i)}
+function build(){while(G.children.length)G.remove(G.children[0]);items=[];pill=[];const L=bed.layers,n=L.length,tl=new THREE.TextureLoader();
+const tex=i=>{const t=tl.load(`assets/${bed.id}/l${i+1}.jpg`);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(2,2);t.encoding=THREE.sRGBEncoding;t.anisotropy=4;return t};
+const mat=(c,m)=>new THREE.MeshStandardMaterial(Object.assign({roughness:.9},c?{color:c}:{},m||{}));
+const box=(w,h,d,m,x,y,z)=>{const o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);G.add(o);return o};
+box(2.3,.3,2.5,mat(0x8a6a4a),0,.15,0);box(2.4,1.2,.14,mat(0xb89b78),0,.75,-1.32);box(2,.35,2.2,mat(0xf4efe6),0,.475,0);
+const ord=[];L.forEach((l,i)=>l.k==='f'&&ord.push([i,'f']));
+L.map((l,i)=>[l,i]).filter(([l])=>!l.k).sort((a,b)=>b[1]-a[1]).forEach(([l,i])=>ord.push([i,'l']));L.forEach((l,i)=>l.k==='t'&&ord.push([i,'t']));
+let k=0;ord.forEach(([i,t])=>{const m=mat(0xffffff,{map:tex(i)}),sx=(i-(n-1)/2)*2.55;let o,y0;
+if(t==='f'){o=box(2.04,.37,2.24,m,0,.475,0);y0=.475}else{const th=.075;y0=.65+.04+k*th;o=box(2.3,.07,t==='t'?1.2:2.5,m,0,y0,t==='t'?.7:0);k++}
+items.push({m:o,i,t,y0,sx,mat:m})});
+const top=.65+.04+k*.075;const pm=mat(0xffffff,{map:tex(0)});
+[-.5,.5].forEach(x=>{const p=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),pm);p.scale.set(.46,.15,.3);p.position.set(x,top+.1,-.85);G.add(p);pill.push(p)});
+G.userData.top=top;
+const fl=new THREE.Mesh(new THREE.CircleGeometry(9,48),new THREE.MeshBasicMaterial({color:0xe6dac6,transparent:true,opacity:.5}));fl.rotation.x=-Math.PI/2;fl.position.y=-.01;G.add(fl)}
+function resize(){if(!R)return;const s=$('#stage');R.setSize(s.clientWidth,s.clientHeight,false);CAM.aspect=s.clientWidth/s.clientHeight;CAM.updateProjectionMatrix()}
+function loop(){raf=requestAnimationFrame(loop);u+=(uT-u)*.06;const e=ez(Math.min(1,u)),n=bed.layers.length;
+if(auto&&!pt.size)yaw+=.004;
+if(ease&&!pt.size){const w=Math.atan2(Math.sin(yaw),Math.cos(yaw));yaw=w+(0-w)*.06;pitch+=(.62-pitch)*.06;if(Math.abs(w)<.01)ease=0}
+items.forEach(o=>{const s=o.i===sel,m=o.m;m.position.x=o.sx*e;m.position.y=o.y0+(.85+(s?.25:0))*e+(s&&!uT?.04:0);
+o.mat.emissive.setHex(s?0x332211:0);});
+const pd=G.userData.top*(1-e)+(.65)*e;pill.forEach(p=>p.position.y=pd+.1);
+const hw=((n-1)/2*2.55+1.3)*e+1.5*(1-e),asp=CAM.aspect,need=Math.max(6,hw/(Math.tan(.5*35*Math.PI/180)*asp)*1.08);
+dist+=(need*zoom-dist)*.08;
+CAM.position.set(Math.sin(yaw)*Math.cos(pitch)*dist,.7+Math.sin(pitch)*dist,Math.cos(yaw)*Math.cos(pitch)*dist);CAM.lookAt(0,.7+.3*e,0);R.render(T,CAM)}
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');
+</script></body></html>
